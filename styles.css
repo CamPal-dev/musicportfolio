@@ -575,3 +575,23 @@ footer .socials { gap: 12px; }
 .expand:hover { color: #fff; }
 @media(max-width:650px) { .expand { width: 22px; height: 28px; } }
 .video-card h3 { font-weight: 400; color: #b5b9ad; -webkit-font-smoothing: antialiased; }
+/* A musical mobile toggle and one uninterrupted backdrop for the entire menu. */
+.menu-toggle svg { width: 30px; height: 30px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; transition: transform 320ms cubic-bezier(.2,.8,.3,1); }
+.menu-open .menu-toggle svg { transform: rotate(-14deg) translateY(-2px); }
+@media (max-width: 650px) {
+ .menu-toggle { padding: 7px; border-radius: 50%; }
+ .menu-toggle:focus-visible { outline: 1px dashed var(--accent); outline-offset: 3px; }
+ .site-header::after {
+  content: ''; position: absolute; z-index: -1; pointer-events: none; top: 0; left: 0; right: 0; height: 430px;
+  background: linear-gradient(to bottom, #151411fa 0%, #151411f7 35%, #151411eb 60%, #151411b3 76%, #15141145 90%, transparent 100%);
+  opacity: 0; transition: opacity 320ms ease;
+ }
+ .site-header.menu-open::after { opacity: 1; }
+ .site-header nav { background: none; transition: opacity 300ms ease, transform 300ms ease, visibility 300ms; }
+ .site-header::before { transition: opacity 320ms ease; }
+ .site-header.menu-open::before { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .menu-toggle svg, .site-header::after, .site-header nav, .site-header::before { transition: none; }
+ .menu-open .menu-toggle svg { transform: none; }
+}

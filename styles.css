@@ -627,3 +627,6 @@ footer .socials { gap: 12px; }
 .direction-icon { width: 32px; height: 32px; flex: 0 0 32px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
 .influences-heading > div > p { max-width: 270px; flex-shrink: 1; }
 @media(max-width:1000px) { .influences-heading > div > p { max-width: none; } }
+.direction-tabs { border-bottom: 0; padding-bottom: 0; margin-bottom: 26px; }
+#direction-0 > h2 { font-size: 24px; line-height: 1.25; margin-bottom: 14px; }
+@media(max-width:650px) { #direction-0 > h2 { font-size: 22px; } }

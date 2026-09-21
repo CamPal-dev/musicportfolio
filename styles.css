@@ -595,3 +595,31 @@ footer .socials { gap: 12px; }
  .menu-toggle svg, .site-header::after, .site-header nav, .site-header::before { transition: none; }
  .menu-open .menu-toggle svg { transform: none; }
 }
+/* Editorial influences section, using the owner's album list and placeholders. */
+.influences-heading { margin-top: 86px; }
+.exploration-label { display: flex; align-items: center; gap: 22px; font: 10px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 3px; color: #9da491; margin: 0 0 32px; }
+.exploration-label span { width: 55px; height: 1px; background: #777f6c; }
+.influences-heading > div { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.influences-heading h2 { font: 400 clamp(40px,6.5vw,86px)/1.05 Georgia,serif; letter-spacing: -3px; margin: 0; }
+.influences-heading > div > p { font: 16px/1.5 Georgia,serif; color: #b0b7a5; margin: 0 0 5px; flex-shrink: 0; }
+.direction-tabs { margin: 34px 0 44px; gap: 18px; padding-bottom: 30px; }
+.direction-tabs button { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 22px; border: 1px solid #747c67; border-radius: 7px; font-size: 19px; text-align: left; }
+.direction-tabs button::after { content: '→'; font: 29px 'Caveat', cursive; }
+.direction-tabs button[aria-selected="true"] { background: #333c2c; border-color: #e0e6d6; border-radius: 7px; }
+#direction-0 > h2 { border: 0; padding: 0; font-size: 44px; margin-bottom: 20px; }
+#direction-0 .direction-intro { max-width: none; margin-bottom: 30px; }
+.album-carousel { padding: 0 0 58px; border-bottom: 1px solid #747c67; }
+.album-stage { position: relative; align-items: stretch; overflow-x: auto; gap: 22px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #555f49 transparent; padding-bottom: 12px; }
+.album-card, .album-card.is-current { display: block; flex: 0 0 calc((100% - 88px) / 5); border: 0; padding: 0; background: none; opacity: 1; transform: none; scroll-snap-align: start; }
+.album-placeholder { border-radius: 5px; border-color: #4e5842; }
+.album-card h3 { font: 18px/1.3 Georgia,serif; margin: 16px 0 7px; }
+.album-card h3::before { content: counter(influence, decimal-leading-zero); font: 12px 'DM Mono',monospace; color: #adb79f; margin-right: 12px; }
+.album-stage { counter-reset: influence; }
+.album-card { counter-increment: influence; }
+.album-title { padding-left: 29px; font: 11px/1.5 'DM Mono',monospace; color: #aeb99f; }
+.album-carousel .carousel-arrow { top: auto; bottom: 7px; width: 36px; height: 36px; }
+.album-carousel .carousel-arrow.prev { left: auto; right: 48px; }
+.album-carousel .carousel-arrow.next { right: 0; }
+.carousel-dots { display: none; }
+@media(max-width:1000px) { .influences-heading > div { display: block; }.influences-heading > div > p { margin-top: 20px; }.direction-tabs button { font-size: 16px; padding: 17px 14px; }.album-card, .album-card.is-current { flex-basis: calc((100% - 44px) / 3); } }
+@media(max-width:650px) { .influences-heading h2 { letter-spacing: -1px; }.direction-tabs { gap: 10px; }.direction-tabs button { padding: 15px 18px; }.album-card, .album-card.is-current { display: block; flex-basis: 65%; }#direction-0 > h2 { font-size: 32px; }.album-title { padding-left: 0; } }

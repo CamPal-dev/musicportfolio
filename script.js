@@ -290,14 +290,15 @@ let albumIndex = 0;
 function selectAlbum(index, announce = true) {
   albumIndex = (index + albumCards.length) % albumCards.length;
   albumCards.forEach((card, i) => {
-    card.classList.toggle('is-current', i === albumIndex);
-    const previous = (albumIndex - 1 + albumCards.length) % albumCards.length;
-    const next = (albumIndex + 1) % albumCards.length;
-    card.hidden = i !== previous && i !== albumIndex && i !== next;
-    card.style.order = (i - albumIndex + 1 + albumCards.length) % albumCards.length;
+    card.hidden = false;
+    card.classList.remove('is-current');
+    card.style.order = '';
   });
+  const stage = document.querySelector('.album-stage');
+  const target = albumCards[albumIndex];
+  stage.scrollTo({ left: target.offsetLeft - albumCards[0].offsetLeft, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
   albumDots.forEach((dot, i) => dot.setAttribute('aria-pressed', String(i === albumIndex)));
-  if (announce) document.querySelector('.carousel-announcement').textContent = albumCards[albumIndex].querySelector('h3').textContent;
+  if (announce) document.querySelector('.carousel-announcement').textContent = target.querySelector('h3').textContent;
 }
 document.querySelector('.carousel-arrow.prev').addEventListener('click', () => selectAlbum(albumIndex - 1));
 document.querySelector('.carousel-arrow.next').addEventListener('click', () => selectAlbum(albumIndex + 1));

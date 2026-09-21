@@ -1,0 +1,140 @@
+{
+  "tracks": [
+    {
+      "title": "small boat sort of ok",
+      "category": "songs",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/finished songs/small boat sort of ok.wav",
+      "path": "audio/songs-small-boat-sort-of-ok.mp3"
+    },
+    {
+      "title": "tree hugger",
+      "category": "songs",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/finished songs/tree hugger.wav",
+      "path": "audio/songs-tree-hugger.mp3"
+    },
+    {
+      "title": "two in one 1",
+      "category": "songs",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/finished songs/two in one 1.wav",
+      "path": "audio/songs-two-in-one-1.mp3"
+    },
+    {
+      "title": "two in one 3",
+      "category": "songs",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/finished songs/two in one 3.wav",
+      "path": "audio/songs-two-in-one-3.mp3"
+    },
+    {
+      "title": "iris - go go dolls",
+      "category": "covers",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/covers/iris - go go dolls.aiff",
+      "path": "audio/covers-iris-go-go-dolls.mp3"
+    },
+    {
+      "title": "jolene - parton",
+      "category": "covers",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/covers/jolene - parton.m4a",
+      "path": "audio/covers-jolene-parton.mp3"
+    },
+    {
+      "title": "jolene - ray",
+      "category": "covers",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/covers/jolene - ray.aiff",
+      "path": "audio/covers-jolene-ray.mp3"
+    },
+    {
+      "title": "stay alive - gonzales",
+      "category": "covers",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/covers/stay alive - gonzales.m4a",
+      "path": "audio/covers-stay-alive-gonzales.mp3"
+    },
+    {
+      "title": "open like shell",
+      "category": "demos",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/unfinished songs/open like shell.m4a",
+      "path": "audio/demos-open-like-shell.mp3"
+    },
+    {
+      "title": "prime numbers",
+      "category": "demos",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/unfinished songs/prime numbers.m4a",
+      "path": "audio/demos-prime-numbers.mp3"
+    },
+    {
+      "title": "tiktok tarot readings",
+      "category": "demos",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/unfinished songs/tiktok tarot readings.m4a",
+      "path": "audio/demos-tiktok-tarot-readings.mp3"
+    },
+    {
+      "title": "Viviana",
+      "category": "italiano",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/italiano/Viviana.m4a",
+      "path": "audio/italiano-viviana.mp3"
+    },
+    {
+      "title": "se ti dico",
+      "category": "italiano",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/italiano/se ti dico.m4a",
+      "path": "audio/italiano-se-ti-dico.mp3"
+    }
+  ],
+  "videos": [
+    {
+      "title": "fade into you",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/videos/fade into you.mp4",
+      "path": "videos/videos-fade-into-you.mp4",
+      "poster": "videos/videos-fade-into-you.jpg"
+    },
+    {
+      "title": "tuuuu",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/videos/tuuuu.MOV",
+      "path": "videos/videos-tuuuu.mp4",
+      "poster": "videos/videos-tuuuu.jpg"
+    },
+    {
+      "title": "where's my food",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/SONGZ/videos/where's my food.MP4",
+      "path": "videos/videos-where-s-my-food.mp4",
+      "poster": "videos/videos-where-s-my-food.jpg"
+    },
+    {
+      "title": "making viviana",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/making viviana.MOV",
+      "path": "videos/videos-making-viviana.mp4",
+      "poster": "videos/videos-making-viviana.jpg"
+    },
+    {
+      "title": "the voice",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/the voice.MP4",
+      "path": "videos/videos-the-voice.mp4",
+      "poster": "videos/videos-the-voice.jpg"
+    },
+    {
+      "title": "gay since day one",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/gay since day one.mov",
+      "path": "videos/videos-gay-since-day-one.mp4",
+      "poster": "videos/videos-gay-since-day-one.jpg"
+    },
+    {
+      "title": "wassup babygirl",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/wassup babygirl.mov",
+      "path": "videos/videos-wassup-babygirl.mp4",
+      "poster": "videos/videos-wassup-babygirl.jpg"
+    },
+    {
+      "title": "messin' around",
+      "category": "videos",
+      "source": "/Users/camillapalermo/Desktop/messin' around.MOV",
+      "path": "videos/videos-messin-around.mp4",
+      "poster": "videos/videos-messin-around.jpg"
+    }
+  ]
+}

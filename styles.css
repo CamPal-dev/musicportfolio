@@ -630,3 +630,17 @@ footer .socials { gap: 12px; }
 .direction-tabs { border-bottom: 0; padding-bottom: 0; margin-bottom: 26px; }
 #direction-0 > h2 { font-size: 24px; line-height: 1.25; margin-bottom: 14px; }
 @media(max-width:650px) { #direction-0 > h2 { font-size: 22px; } }
+/* Touch-first carousels: swipe the cards directly on phones. */
+@media (max-width: 650px) {
+  .video-grid, .album-stage {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .video-grid::-webkit-scrollbar, .album-stage::-webkit-scrollbar { display: none; }
+  .video-card, .album-card { scroll-snap-align: start; }
+  .album-carousel .carousel-arrow { display: none; }
+  .album-carousel { padding-bottom: 20px; }
+}

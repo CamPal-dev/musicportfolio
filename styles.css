@@ -623,3 +623,7 @@ footer .socials { gap: 12px; }
 .carousel-dots { display: none; }
 @media(max-width:1000px) { .influences-heading > div { display: block; }.influences-heading > div > p { margin-top: 20px; }.direction-tabs button { font-size: 16px; padding: 17px 14px; }.album-card, .album-card.is-current { flex-basis: calc((100% - 44px) / 3); } }
 @media(max-width:650px) { .influences-heading h2 { letter-spacing: -1px; }.direction-tabs { gap: 10px; }.direction-tabs button { padding: 15px 18px; }.album-card, .album-card.is-current { display: block; flex-basis: 65%; }#direction-0 > h2 { font-size: 32px; }.album-title { padding-left: 0; } }
+.direction-tabs button::after { content: none; }
+.direction-icon { width: 32px; height: 32px; flex: 0 0 32px; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+.influences-heading > div > p { max-width: 270px; flex-shrink: 1; }
+@media(max-width:1000px) { .influences-heading > div > p { max-width: none; } }

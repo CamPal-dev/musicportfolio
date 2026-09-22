@@ -308,7 +308,7 @@ selectAlbum(0, false);
 // Quiet, single-stroke outlines. Only the decorative SVG bends; content stays crisp.
 (() => {
   const ns = 'http://www.w3.org/2000/svg';
-  const selectors = '.music-filters, .video-section, .video-heading, .life-pages, .life-story + .life-story, .story-copy h2, .direction-panel > h2, .direction-tabs button, .album-carousel, .direction-moodboard, .editorial-placeholder, .video-preview, dialog, .notebook-player, .origin-panel, .context-panel, .photo-frame, .track-tag, .track';
+  const selectors = '.music-filters, .video-section, .video-heading, .life-pages, .life-story + .life-story, .story-copy h2, .direction-panel > h2, .direction-tabs button, .album-carousel, .album-art-frame, .direction-moodboard, .editorial-placeholder, .video-preview, dialog, .notebook-player, .origin-panel, .context-panel, .photo-frame, .track-tag, .track';
   const observer = new ResizeObserver(entries => entries.forEach(({target}) => draw(target)));
   const shapes = new WeakMap();
   function draw(el) {
@@ -322,13 +322,13 @@ selectAlbum(0, false);
     const r = Math.min(Math.max(radius || 4, 4), w / 4, h / 4);
     function pen(ax, ay, bx, by, seed = 0) {
       const dx = bx - ax, dy = by - ay, length = Math.hypot(dx, dy);
-      const steps = Math.max(1, Math.round(length / 90));
+      const steps = Math.max(1, Math.round(length / 120));
       const nx = -dy / (length || 1), ny = dx / (length || 1);
       let result = '';
       for (let i = 0; i < steps; i++) {
         const t = i / steps, next = (i + 1) / steps;
-        const bend = Math.sin((i + seed) * 2.4 + .8) * 3.2;
-        const endDrift = i === steps - 1 ? 0 : Math.sin((i + seed + 1) * 1.7) * .8;
+        const bend = Math.sin((i + seed) * 2.4 + .8) * 1.7;
+        const endDrift = i === steps - 1 ? 0 : Math.sin((i + seed + 1) * 1.7) * .4;
         result += ` C ${ax+dx*(t+.32/steps)+nx*bend} ${ay+dy*(t+.32/steps)+ny*bend} ${ax+dx*(t+.7/steps)+nx*bend*.6} ${ay+dy*(t+.7/steps)+ny*bend*.6} ${ax+dx*next+nx*endDrift} ${ay+dy*next+ny*endDrift}`;
       }
       return result;

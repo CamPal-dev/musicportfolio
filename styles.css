@@ -698,3 +698,8 @@ footer .socials { gap: 12px; }
 .photo-music-friends { position: relative; width: 100%; padding: 7px; background: #d6d0be; box-shadow: 0 5px 15px #0004; transform: rotate(-3deg); }
 .photo-music-friends img { width: 100%; height: auto; object-fit: contain; }
 .photo-music-friends::before { content: ''; position: absolute; z-index: 2; width: 24%; height: 18px; background: #c4baa07a; top: -9px; left: 39%; transform: rotate(5deg); }
+
+/* Album artwork shares the same restrained pen outline as the rest of the page. */
+.album-art-frame { display: block; position: relative; padding: 3px; border: 1px solid #929b82; border-radius: 5px; }
+.album-art-frame .album-cover { border: 0; border-radius: 2px; }
+.socials svg.envelope-sketch { stroke-width: 1.35; overflow: visible; }

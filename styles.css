@@ -742,3 +742,14 @@ footer .socials { gap: 12px; }
 .photo-selfie { width: 76%; left: 1%; top: 0; transform: rotate(-3deg); }
 .photo-haircut { width: 42%; left: 0; bottom: 0; transform: rotate(-5deg); }
 .photo-frog-shirt { width: 46%; right: 0; bottom: 2%; transform: rotate(5deg); }
+
+/* All six About photos, in a loose two-column arrangement. */
+.story-art.about-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; align-items: start; aspect-ratio: auto; padding: 12px 8px; }
+.about-collage .collage-photo { position: relative; width: 100%; height: auto; inset: auto; }
+.about-collage .photo-selfie { transform: rotate(-3deg); }
+.about-collage .photo-about-portrait { margin-top: 24px; transform: rotate(4deg); }
+.about-collage .photo-about-friends { transform: rotate(-4deg); }
+.about-collage .photo-haircut { margin-top: 16px; transform: rotate(3deg); }
+.about-collage .photo-frog-shirt { transform: rotate(-2deg); }
+.about-collage .photo-about-cat { width: 80%; justify-self: center; margin-top: 22px; transform: rotate(5deg); }
+@media(max-width:650px) { .story-art.about-collage { width: 100%; gap: 16px 12px; } }

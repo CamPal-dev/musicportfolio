@@ -317,20 +317,36 @@ selectAlbum(0, false);
     if (!w || !h) return;
     const { svg, path, sides, radius, track } = data;
     svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-    // Less than a pixel of drift, with constant stroke thickness at every size.
-    const x = 1, y = 1, r = Math.min(radius || 3, w / 4, h / 4);
-    const right = w - 1, bottom = h - 1;
-    let d;
+    // Short, gently uneven pen movements, at a constant weight like the icons.
+    const x = 2.5, y = 2.5, right = w - 2.5, bottom = h - 2.5;
+    const r = Math.min(Math.max(radius || 4, 4), w / 4, h / 4);
+    function pen(ax, ay, bx, by, seed = 0) {
+      const dx = bx - ax, dy = by - ay, length = Math.hypot(dx, dy);
+      const steps = Math.max(1, Math.round(length / 90));
+      const nx = -dy / (length || 1), ny = dx / (length || 1);
+      let result = '';
+      for (let i = 0; i < steps; i++) {
+        const t = i / steps, next = (i + 1) / steps;
+        const bend = Math.sin((i + seed) * 2.4 + .8) * 3.2;
+        const endDrift = i === steps - 1 ? 0 : Math.sin((i + seed + 1) * 1.7) * .8;
+        result += ` C ${ax+dx*(t+.32/steps)+nx*bend} ${ay+dy*(t+.32/steps)+ny*bend} ${ax+dx*(t+.7/steps)+nx*bend*.6} ${ay+dy*(t+.7/steps)+ny*bend*.6} ${ax+dx*next+nx*endDrift} ${ay+dy*next+ny*endDrift}`;
+      }
+      return result;
+    }
+    let d = '';
     if (sides.every(Boolean)) {
-      d = `M ${x+r} ${y} C ${w*.3} .3 ${w*.7} 1.7 ${right-r} ${y} Q ${right} .8 ${right} ${y+r} C ${w-1.7} ${h*.35} ${w-.3} ${h*.7} ${right} ${bottom-r} Q ${right} ${bottom} ${right-r} ${bottom} C ${w*.7} ${h-.3} ${w*.3} ${h-1.7} ${x+r} ${bottom} Q .8 ${bottom} ${x} ${bottom-r} C .3 ${h*.7} 1.7 ${h*.3} ${x} ${y+r} Q ${x} ${y} ${x+r} ${y} Z`;
+      d = `M ${x+r} ${y}` + pen(x+r,y,right-r,y)
+        + ` Q ${right+1} ${y-1} ${right} ${y+r}` + pen(right,y+r,right,bottom-r,2)
+        + ` Q ${right+.5} ${bottom+1} ${right-r} ${bottom}` + pen(right-r,bottom,x+r,bottom,4)
+        + ` Q ${x-1} ${bottom-.5} ${x} ${bottom-r}` + pen(x,bottom-r,x,y+r,6)
+        + ` Q ${x-.5} ${y} ${x+r} ${y}`;
     } else {
-      d = '';
       const left = track ? (el === el.parentElement.lastElementChild ? 0 : (innerWidth <= 650 ? 0 : 50)) : x;
       const end = track ? w - (innerWidth <= 650 ? 0 : 59) : right;
-      if (sides[0]) d += `M ${x} ${y} C ${w*.32} .25 ${w*.68} 1.75 ${right} ${y} `;
-      if (sides[1]) d += `M ${right} ${y} C ${w-.25} ${h*.3} ${w-1.75} ${h*.7} ${right} ${bottom} `;
-      if (sides[2]) d += `M ${left} ${bottom} C ${left+(end-left)*.32} ${h-1.75} ${left+(end-left)*.68} ${h-.25} ${end} ${bottom} `;
-      if (sides[3]) d += `M ${x} ${y} C .25 ${h*.3} 1.75 ${h*.7} ${x} ${bottom}`;
+      if (sides[0]) d += `M ${x} ${y}` + pen(x,y,right,y);
+      if (sides[1]) d += `M ${right} ${y}` + pen(right,y,right,bottom,2);
+      if (sides[2]) d += `M ${left} ${bottom}` + pen(left,bottom,end,bottom,1);
+      if (sides[3]) d += `M ${x} ${y}` + pen(x,y,x,bottom,3);
     }
     path.setAttribute('d', d);
   }

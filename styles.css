@@ -703,3 +703,35 @@ footer .socials { gap: 12px; }
 .album-art-frame { display: block; position: relative; padding: 3px; border: 1px solid #929b82; border-radius: 5px; }
 .album-art-frame .album-cover { border: 0; border-radius: 2px; }
 .socials svg.envelope-sketch { stroke-width: 1.35; overflow: visible; }
+
+/* About as three open editorial spreads, rather than one enclosing panel. */
+.life-pages { border: 0; border-radius: 0; padding: 0; background: none; }
+.life-story { grid-template-columns: minmax(0,1.08fr) minmax(0,1fr); gap: clamp(32px,6vw,88px); padding: 18px 0 64px; align-items: center; }
+.life-story + .life-story { padding-top: 58px; border-top-color: #777b70; }
+.story-copy { max-width: 560px; }
+.story-copy h2 { border: 0; padding: 0; margin-bottom: 28px; font-size: clamp(25px,2.5vw,34px); letter-spacing: -.5px; }
+.story-copy p { font-size: 16px; line-height: 1.65; margin: 0 0 18px; }
+.story-copy p:last-child { margin-bottom: 0; }
+.story-art.photo-collage { align-self: center; margin: 0 auto; max-width: 450px; }
+.story-art.about-collage { aspect-ratio: 1 / 1.35; }
+.about-collage .photo-cutout { width: 74%; height: 76%; top: 2%; left: 1%; }
+.about-collage .photo-friends { width: 45%; height: 36%; top: 54%; right: 0; }
+.about-collage .photo-cat { width: 25%; left: 10%; bottom: 0; }
+.story-art.origin-collage { aspect-ratio: 1 / 1.5; }
+.origin-collage .photo-mountains { width: 77%; top: 1%; }
+.origin-collage .photo-guitar-lift { width: 43%; bottom: 0; left: 2%; }
+.origin-collage .photo-childhood { width: 43%; height: 36%; bottom: 0; right: 0; }
+.story-art.desire-collage { max-width: 510px; padding: 12px 5px; }
+@media(max-width:850px) {
+ .life-story { gap: 30px; }
+ .story-copy p { font-size: 15px; }
+}
+@media(max-width:650px) {
+ .life-story { grid-template-columns: 1fr; gap: 32px; padding-bottom: 42px; }
+ .life-story + .life-story { padding-top: 38px; }
+ .story-copy { max-width: none; }
+ .story-copy h2 { font-size: 27px; margin-bottom: 22px; }
+ .story-copy p { font-size: 16px; }
+ .story-art.photo-collage { width: 90%; max-width: 340px; margin: 0 auto; }
+ .story-art.desire-collage { width: 96%; }
+}

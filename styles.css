@@ -735,3 +735,10 @@ footer .socials { gap: 12px; }
  .story-art.photo-collage { width: 90%; max-width: 340px; margin: 0 auto; }
  .story-art.desire-collage { width: 96%; }
 }
+
+/* The three photos selected for the opening About block. */
+.about-collage .collage-photo { padding: 6px; background: #d6d0be; box-shadow: 0 5px 15px #0004; }
+.about-collage .collage-photo img { height: auto; object-fit: contain; }
+.photo-selfie { width: 76%; left: 1%; top: 0; transform: rotate(-3deg); }
+.photo-haircut { width: 42%; left: 0; bottom: 0; transform: rotate(-5deg); }
+.photo-frog-shirt { width: 46%; right: 0; bottom: 2%; transform: rotate(5deg); }

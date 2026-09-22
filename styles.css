@@ -665,3 +665,14 @@ footer .socials { gap: 12px; }
 @media (max-width:650px) {
  .story-art.photo-collage { max-width: 360px; margin: 10px auto 8px; }
 }
+
+/* A steady pen line, rather than a perfectly mechanical border. */
+.sketch-position { position: relative; }
+.sketch-outline { border-color: transparent !important; }
+.sketch-outline > svg.sketched-outline { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; fill: none; color: var(--sketched-color); z-index: 2; }
+.sketch-outline > svg.sketched-outline path { fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.track.sketch-outline::after { display: none; }
+.direction-tabs button > svg.sketched-outline { color: #747c67; }
+.direction-tabs button[aria-selected="true"] > svg.sketched-outline { color: #e0e6d6; }
+.video-preview:hover > svg.sketched-outline, .video-preview:focus-visible > svg.sketched-outline { color: #ebe9dc; }
+.video-preview:hover, .video-preview:focus-visible { box-shadow: none; }

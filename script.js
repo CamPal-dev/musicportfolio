@@ -304,3 +304,56 @@ document.querySelector('.carousel-arrow.prev').addEventListener('click', () => s
 document.querySelector('.carousel-arrow.next').addEventListener('click', () => selectAlbum(albumIndex + 1));
 albumDots.forEach((dot, index) => dot.addEventListener('click', () => selectAlbum(index)));
 selectAlbum(0, false);
+
+// Quiet, single-stroke outlines. Only the decorative SVG bends; content stays crisp.
+(() => {
+  const ns = 'http://www.w3.org/2000/svg';
+  const selectors = '.music-filters, .video-section, .video-heading, .life-pages, .life-story + .life-story, .story-copy h2, .direction-panel > h2, .direction-tabs button, .album-carousel, .direction-moodboard, .editorial-placeholder, .video-preview, dialog, .notebook-player, .origin-panel, .context-panel, .photo-frame, .track-tag, .track';
+  const observer = new ResizeObserver(entries => entries.forEach(({target}) => draw(target)));
+  const shapes = new WeakMap();
+  function draw(el) {
+    const data = shapes.get(el);
+    const w = el.clientWidth, h = el.clientHeight;
+    if (!w || !h) return;
+    const { svg, path, sides, radius, track } = data;
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    // Less than a pixel of drift, with constant stroke thickness at every size.
+    const x = 1, y = 1, r = Math.min(radius || 3, w / 4, h / 4);
+    const right = w - 1, bottom = h - 1;
+    let d;
+    if (sides.every(Boolean)) {
+      d = `M ${x+r} ${y} C ${w*.3} .3 ${w*.7} 1.7 ${right-r} ${y} Q ${right} .8 ${right} ${y+r} C ${w-1.7} ${h*.35} ${w-.3} ${h*.7} ${right} ${bottom-r} Q ${right} ${bottom} ${right-r} ${bottom} C ${w*.7} ${h-.3} ${w*.3} ${h-1.7} ${x+r} ${bottom} Q .8 ${bottom} ${x} ${bottom-r} C .3 ${h*.7} 1.7 ${h*.3} ${x} ${y+r} Q ${x} ${y} ${x+r} ${y} Z`;
+    } else {
+      d = '';
+      const left = track ? (el === el.parentElement.lastElementChild ? 0 : (innerWidth <= 650 ? 0 : 50)) : x;
+      const end = track ? w - (innerWidth <= 650 ? 0 : 59) : right;
+      if (sides[0]) d += `M ${x} ${y} C ${w*.32} .25 ${w*.68} 1.75 ${right} ${y} `;
+      if (sides[1]) d += `M ${right} ${y} C ${w-.25} ${h*.3} ${w-1.75} ${h*.7} ${right} ${bottom} `;
+      if (sides[2]) d += `M ${left} ${bottom} C ${left+(end-left)*.32} ${h-1.75} ${left+(end-left)*.68} ${h-.25} ${end} ${bottom} `;
+      if (sides[3]) d += `M ${x} ${y} C .25 ${h*.3} 1.75 ${h*.7} ${x} ${bottom}`;
+    }
+    path.setAttribute('d', d);
+  }
+  document.querySelectorAll(selectors).forEach(el => {
+    const style = getComputedStyle(el);
+    const track = el.classList.contains('track');
+    const sides = ['Top','Right','Bottom','Left'].map(side => parseFloat(style[`border${side}Width`]) > 0 && style[`border${side}Style`] !== 'none');
+    if (track) sides[2] = true;
+    if (!sides.some(Boolean)) return;
+    const color = track ? getComputedStyle(el, '::after').backgroundColor : style[['borderTopColor','borderRightColor','borderBottomColor','borderLeftColor'][sides.findIndex(Boolean)]];
+    const svg = document.createElementNS(ns, 'svg');
+    svg.classList.add('sketched-outline');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    const path = document.createElementNS(ns, 'path');
+    svg.append(path);
+    el.style.setProperty('--sketched-color', color);
+    if (style.position === 'static') el.classList.add('sketch-position');
+    el.classList.add('sketch-outline');
+    el.append(svg);
+    shapes.set(el, { svg, path, sides, radius: parseFloat(style.borderTopLeftRadius), track });
+    observer.observe(el);
+    draw(el);
+  });
+})();

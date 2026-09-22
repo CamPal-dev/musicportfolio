@@ -644,3 +644,4 @@ footer .socials { gap: 12px; }
   .album-carousel .carousel-arrow { display: none; }
   .album-carousel { padding-bottom: 20px; }
 }
+.album-cover { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; border: 1px solid #4e5842; border-radius: 5px; background: #171a14; }

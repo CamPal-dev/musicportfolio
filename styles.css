@@ -685,3 +685,10 @@ footer .socials { gap: 12px; }
 .photo-chair img { object-position: center; }
 .photo-shirt { width: 38%; height: 34%; }
 .sketch-outline > svg.sketched-outline { color: color-mix(in srgb, var(--sketched-color), #d9ddcf 20%); }
+
+/* Three snapshots in the origin story; keep the marked family photo unobscured. */
+.story-art.origin-collage { aspect-ratio: 1 / 1.55; }
+.origin-collage .photo-mountains { width: 69%; height: auto; aspect-ratio: 4419 / 6250; top: 1%; left: 2%; }
+.origin-collage .photo-mountains img { object-fit: contain; }
+.origin-collage .photo-childhood { width: 40%; height: 34%; right: 1%; bottom: 4%; transform: rotate(6deg); }
+.photo-guitar-lift { width: 45%; aspect-ratio: 3 / 4; left: 3%; bottom: 0; padding: 6px; background: #d6d0be; box-shadow: 0 5px 15px #0004; transform: rotate(-5deg); }

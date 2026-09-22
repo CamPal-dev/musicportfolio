@@ -19,3 +19,6 @@ Video cards play in place with native controls; starting another song or video p
 
 ## Expanded About and directions
 About now contains the supplied biography, origin story, and musical identity copy. Three accessible tabs select big time influences, current direction, and another direction. The influence carousel supports arrows and dot selectors. Photos and moodboard compositions are displayed from the four supplied reference images in assets/about-reference-*.png; these are illustrative reference artwork, not independently sourced album covers. Track-list arrows open Spotify searches. The two playlist embeds await the owner's actual playlist URLs; no playlist has been created or published. Edit section text and track references in index.html.
+
+
+Both musical direction panels now contain live Spotify playlist embeds (352px tall), with direct Spotify links. Album artwork is awaiting owner-supplied images.

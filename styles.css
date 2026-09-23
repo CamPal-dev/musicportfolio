@@ -771,3 +771,12 @@ footer .socials { gap: 12px; }
 @media(min-width:651px) {
  .page::before { height: auto; aspect-ratio: 1672 / 941; background-size: 100% 100%; }
 }
+
+/* Film texture and a long, feathered transition into the page colour. */
+.page { --hero-feather: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent), linear-gradient(to bottom, transparent 0%, #000 12%, #000 39%, #000000d9 52%, #0000008c 67%, #00000038 82%, #0000 100%); }
+.page::before, .page::after { mask-image: var(--hero-feather); mask-composite: intersect; }
+.page::after { content: ''; position: absolute; inset: 0 0 auto; height: auto; aspect-ratio: 1672 / 941; z-index: -1; pointer-events: none; background: url('assets/hero-grain.svg') repeat; background-size: 180px 180px; mix-blend-mode: soft-light; opacity: .48; }
+@media(max-width:650px) {
+ .page { --hero-feather: linear-gradient(to bottom, transparent, #000 9%, #000 35%, #000000b3 53%, #00000052 73%, transparent 100%); }
+ .page::after { height: 1050px; aspect-ratio: auto; }
+}

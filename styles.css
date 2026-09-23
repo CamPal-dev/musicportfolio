@@ -7,7 +7,7 @@ button { color: inherit; font: inherit; cursor: pointer; }
 a { color: inherit; text-decoration: none; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
 [hidden] { display: none !important; }
-.page { position: relative; max-width: 1100px; min-height: 100vh; margin: auto; background: #151411 url('assets/background.png') center top / 100% auto no-repeat; padding: 0 6.35%; }
+.page { position: relative; max-width: 1100px; min-height: 100vh; margin: auto; background: #151411 url('assets/hero-september.png') center top / 100% auto no-repeat; padding: 0 6.35%; }
 .site-header { height: 120px; display: flex; align-items: flex-start; justify-content: space-between; padding-top: 30px; position: absolute; inset: 0 4% auto 6.35%; z-index: 2; }
 .name { font-family: 'Caveat', cursive; font-size: clamp(34px, 5.5vw, 60px); letter-spacing: 2px; transform: rotate(-9deg); white-space: nowrap; }
 nav { display: flex; gap: 46px; padding-top: 14px; font-size: 20px; color: #d2d5d1; }
@@ -82,7 +82,7 @@ footer { padding: 38px 0 35px 8px; min-height: 180px; }
 body { font-family: Georgia, 'Times New Roman', serif; }
 h3 { font-size: 27px; font-weight: 400; }
 @media (max-width: 650px) {
-  .page { background-image: linear-gradient(to bottom, transparent 75%, #151411 100%), url('assets/background.png'); background-size: 100% 1050px, auto 1050px; }
+  .page { background-image: linear-gradient(to bottom, transparent 75%, #151411 100%), url('assets/hero-september.png'); background-size: 100% 1050px, auto 1050px; }
   h3 { font-size: 22px; }
 }
 @media (max-width: 360px) { h3 { font-size: 20px; } }
@@ -98,7 +98,7 @@ h3 { overflow-wrap: anywhere; }
 .video-card h3 { font-size: 21px; margin-top: 12px; }
 .seek-label { display: flex; align-items: center; gap: 14px; font-size: 13px; }
 .seek { width: 100%; accent-color: var(--accent); }
-.page { background-image: linear-gradient(to bottom, transparent 850px, #151411 1270px), url('assets/background.png'); background-size: 100% 1270px, 100% auto; }
+.page { background-image: linear-gradient(to bottom, transparent 850px, #151411 1270px), url('assets/hero-september.png'); background-size: 100% 1270px, 100% auto; }
 @media (max-width: 650px) {
   nav { gap: 12px; font-size: 14px; }
   .name { font-size: 31px; }
@@ -106,12 +106,12 @@ h3 { overflow-wrap: anywhere; }
   .music-filters button { font-size: 11px; letter-spacing: 1px; }
   .video-grid { grid-template-columns: 1fr; }
   .video-card video { height: 350px; }
-  .page { background-size: 100% 1050px, auto 1050px; background-image: linear-gradient(to bottom, transparent 650px, #151411 1050px), url('assets/background.png'); }
+  .page { background-size: 100% 1050px, auto 1050px; background-image: linear-gradient(to bottom, transparent 650px, #151411 1050px), url('assets/hero-september.png'); }
 }
 @media (max-width: 360px) { .site-header { flex-wrap: wrap; } nav { margin-left: auto; } }
 /* Fade the photograph itself, keeping text and controls crisp. */
 .page { background: none; isolation: isolate; }
-.page::before { content: ''; position: absolute; z-index: -1; pointer-events: none; inset: 0 0 auto; height: 1270px; background: url('assets/background.png') center top / 100% auto no-repeat; mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent), linear-gradient(to bottom, #000 60%, transparent); mask-composite: intersect; }
+.page::before { content: ''; position: absolute; z-index: -1; pointer-events: none; inset: 0 0 auto; height: 1270px; background: url('assets/hero-september.png') center top / 100% auto no-repeat; mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent), linear-gradient(to bottom, #000 60%, transparent); mask-composite: intersect; }
 .video-section { border: 0; }
 .video-grid { display: flex; align-items: flex-start; gap: 24px; overflow-x: auto; padding: 8px 3px 20px; scroll-snap-type: x proximity; }
 .video-card { flex: 0 0 calc((100% - 160px) / 4 - 24px); min-width: 155px; scroll-snap-align: start; }

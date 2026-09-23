@@ -767,16 +767,14 @@ footer .socials { gap: 12px; }
 .photo-childhood .childhood-photo-crop img { position: absolute; width: 152%; max-width: none; height: auto; left: -24%; top: -36%; }
 .about-collage .photo-about-portrait::before { content: ''; position: absolute; z-index: 2; width: 27%; height: 18px; background: #c4baa07a; top: -9px; left: 36%; transform: rotate(6deg); }
 
-/* Fit the existing soft edge fade to the replacement landscape image. */
-@media(min-width:651px) {
- .page::before { height: auto; aspect-ratio: 1672 / 941; background-size: 100% 100%; }
-}
 
-/* Film texture and a long, feathered transition into the page colour. */
-.page { --hero-feather: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent), linear-gradient(to bottom, transparent 0%, #000 12%, #000 39%, #000000d9 52%, #0000008c 67%, #00000038 82%, #0000 100%); }
-.page::before, .page::after { mask-image: var(--hero-feather); mask-composite: intersect; }
-.page::after { content: ''; position: absolute; inset: 0 0 auto; height: auto; aspect-ratio: 1672 / 941; z-index: -1; pointer-events: none; background: url('assets/hero-grain.svg') repeat; background-size: 180px 180px; mix-blend-mode: soft-light; opacity: .48; }
+/* Keep the photograph behind the opening songs, as in the original hero. */
+.page { --hero-feather: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent 0, #000 90px, #000 52%, #000000d9 64%, #00000073 80%, transparent 100%); }
+.page::before, .page::after { height: 1270px; aspect-ratio: auto; mask-image: var(--hero-feather); mask-composite: intersect; }
+.page::before { background-size: cover; background-position: 22% top; }
+.page::after { content: ''; position: absolute; inset: 0 0 auto; z-index: -1; pointer-events: none; background: url('assets/hero-grain.svg') repeat; background-size: 280px 280px; mix-blend-mode: soft-light; opacity: .32; }
 @media(max-width:650px) {
- .page { --hero-feather: linear-gradient(to bottom, transparent, #000 9%, #000 35%, #000000b3 53%, #00000052 73%, transparent 100%); }
- .page::after { height: 1050px; aspect-ratio: auto; }
+ .page { --hero-feather: linear-gradient(to bottom, transparent, #000 75px, #000 52%, #00000099 72%, transparent 100%); }
+ .page::before, .page::after { height: 1050px; }
+ .page::before { background-position: 23% top; }
 }

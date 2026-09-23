@@ -778,3 +778,17 @@ footer .socials { gap: 12px; }
  .page::before, .page::after { height: 1050px; }
  .page::before { background-position: 23% top; }
 }
+
+/* Preserve the photograph's proportions; only the dark lower backdrop extends. */
+.page::before {
+ height: 1270px;
+ background-image: linear-gradient(to bottom, transparent 58%, #151411 100%), url('assets/hero-september.png');
+ background-size: 100% auto, 100% auto;
+ background-size: 100% calc(100vw * 941 / 1672), 100% auto;
+ background-position: center top;
+ background-repeat: no-repeat;
+}
+@media(min-width:1360px) { .page::before { background-size: 100% 765.4px, 100% auto; } }
+@media(max-width:650px) {
+ .page::before { height: 1050px; background-size: 100% 650px, auto 650px; background-position: center top, 23% top; }
+}

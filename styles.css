@@ -792,3 +792,6 @@ footer .socials { gap: 12px; }
 @media(max-width:650px) {
  .page::before { height: 1050px; background-size: 100% 650px, auto 650px; background-position: center top, 23% top; }
 }
+
+/* Give the grain a continuous dark base below the photo, avoiding a hard seam. */
+.page::before { background-color: #151411; }

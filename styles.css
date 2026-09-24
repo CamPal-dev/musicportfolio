@@ -769,7 +769,7 @@ footer .socials { gap: 12px; }
 
 
 /* Keep the photograph behind the opening songs, as in the original hero. */
-.page { --hero-feather: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent 0, #000 90px, #000 52%, #000000d9 64%, #00000073 80%, transparent 100%); }
+.page { --hero-feather: linear-gradient(to right, transparent 0%, #00000026 1.5%, #00000080 4%, #000000d9 7%, #000 11%, #000 89%, #000000d9 93%, #00000080 96%, #00000026 98.5%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 90px, #000 52%, #000000d9 64%, #00000073 80%, transparent 100%); }
 .page::before, .page::after { height: 1270px; aspect-ratio: auto; mask-image: var(--hero-feather); mask-composite: intersect; }
 .page::before { background-size: cover; background-position: 22% top; }
 .page::after { content: ''; position: absolute; inset: 0 0 auto; z-index: -1; pointer-events: none; background: url('assets/hero-grain.svg') repeat; background-size: 280px 280px; mix-blend-mode: soft-light; opacity: .32; }
@@ -795,3 +795,6 @@ footer .socials { gap: 12px; }
 
 /* Give the grain a continuous dark base below the photo, avoiding a hard seam. */
 .page::before { background-color: #151411; }
+
+/* A solid blend surface keeps translucent grain from forming bright side bands. */
+.page { background-color: #151411; }

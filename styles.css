@@ -803,3 +803,7 @@ footer .socials { gap: 12px; }
 .track { grid-template-columns: 34px minmax(160px,1.35fr) minmax(155px,1.25fr) 54px; }
 .influences-heading > div > p { font-family: 'Caveat', cursive; font-weight: 400; font-size: 21px; line-height: 1.25; max-width: 340px; }
 @media(max-width:650px) { .track { grid-template-columns: 22px minmax(0,1fr) 32px 38px; } }
+
+.music-intro { max-width: 760px; margin: 0 0 32px; font-size: 16px; line-height: 1.6; color: var(--text); }
+.music-intro p { margin: 0 0 16px; }
+.music-intro p:last-child { margin-bottom: 0; }
